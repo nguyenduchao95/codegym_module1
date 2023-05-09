@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sở thích của bạn</title>
+    <link rel="stylesheet" href="./css/hobby.css">
+</head>
+<body>
+<form action="hobby.html">
+    <h1 class="title">Sở thích của bạn</h1>
+
+    <div class="form-body">
+        <div class="form-group">
+            <label for="name" class="form-label name">Họ và tên</label>
+            <input id="name" class="form-input" name="name" type="text"/>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label email">Email</label>
+            <input id="email" class="form-input" name="email" type="email"/>
+        </div>
+
+        <div class="form-group hobby-group">
+            <label class="form-label name">Sở thích</label>
+            <div class="hobbies">
+                <div class="form-group">
+                    <input id="sport" name="hobby" value="sport" type="checkbox"/>
+                    <label for="sport" class="form-label">Thể thao</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="music" name="hobby" value="music" type="checkbox"/>
+                    <label for="music" class="form-label">Âm nhạc</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="book" name="hobby" value="book" type="checkbox"/>
+                    <label for="book" class="form-label">Đọc sách</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="web" name="hobby" value="web" type="checkbox"/>
+                    <label for="web" class="form-label">Lướt web</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="game" name="hobby" value="game" type="checkbox"/>
+                    <label for="game" class="form-label">Chơi game</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="film" name="hobby" value="film" type="checkbox"/>
+                    <label for="film" class="form-label">Điện ảnh</label>
+                </div>
+
+                <div class="form-group">
+                    <input id="travel" name="hobby" value="travel" type="checkbox"/>
+                    <label for="travel" class="form-label">Du lịch</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn">
+        <button type="submit" class="submit">Gửi thông tin</button>
+        <button type="reset" class="reset">Nhập lại</button>
+    </div>
+</form>
+</body>
+</html>

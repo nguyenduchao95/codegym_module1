@@ -1,0 +1,77 @@
+body{
+    font-family: arial, sans-serif;
+    background-color: #d5feff;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+form{
+    width: 500px;
+    background-color: #fff;
+    padding: 5px 5px 20px;
+}
+
+.title {
+    background-color: #ff4c00;
+    color: #fff;
+    margin: 0 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 0;
+    font-weight: 400;
+}
+
+.form-body{
+    padding: 0 30px;
+}
+
+.form-group{
+    color: #213ab4;
+    margin-bottom: 15px;
+}
+
+.form-label{
+    display: inline-block;
+    text-align: right;
+}
+
+.form-input{
+    padding: 5px 10px;
+    outline-color: #ff4c00;
+    width: 60%;
+}
+
+.name, .email{
+    width: 20%;
+    margin-right: 5px;
+}
+
+.hobby-group{
+    display: flex;
+    gap: 5px;
+}
+
+.hobbies {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hobbies .form-group{
+    color: #ff8751;
+    flex: 0 0 33.333333%;
+}
+
+.btn{
+    text-align: center;
+}
+
+button{
+    padding: 5px;
+    font-size: 16px;
+}
+
+.submit{
+    margin-right: 10px;
+}
