@@ -1,0 +1,36 @@
+body{
+    background-color: #ffb300;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    width: 70px;
+    height: 70px;
+}
+
+th{
+    font-size: 25px;
+    padding: 12px;
+}
+
+tr:nth-child(even) td:nth-child(even){
+    background-color: white;
+}
+
+tr:nth-child(even) td:nth-child(odd){
+    background-color: black;
+}
+
+tr:nth-child(odd) td:nth-child(odd){
+    background-color: white;
+}
+
+tr:nth-child(odd) td:nth-child(even){
+    background-color: black;
+}
