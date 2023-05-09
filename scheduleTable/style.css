@@ -1,0 +1,54 @@
+body{
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.schedule {
+    width: 100%;
+    padding: 0 100px;
+}
+
+.title{
+    color: #0433ff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    color: #2049ff;
+}
+
+.info p{
+    margin: 8px 0;
+}
+
+.right{
+    text-align: right;
+}
+
+.yellow{
+    background-color: #fefb00;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td{
+    border: 1px solid;
+    padding: 8px;
+    width: 15%;
+    text-align: center;
+}
+
+tr:nth-child(2){
+    background-color: #ffb300;
+}
+
+.width-small{
+    width: 6%;
+}
