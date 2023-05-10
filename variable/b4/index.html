@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng chuyển đổi tiền tệ</title>
+    <style>
+        form{
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label{
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        input, select{
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button{
+            margin-top: 27px;
+            font-size: 16px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input id="amount" name="amount" type="text">
+    </div>
+
+    <div class="form-group">
+        <label for="from">From Currency</label>
+        <select id="from">
+            <option value="vnd">VNĐ</option>
+            <option value="usd">USD</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="to">To Currency</label>
+        <select id="to">
+            <option value="usd">USD</option>
+            <option value="vnd">VNĐ</option>
+        </select>
+    </div>
+
+    <button type="button" id="btn">Convert</button>
+</form>
+
+<div id="result"></div>
+
+<script src="./exam4.js"></script>
+</body>
+</html>
