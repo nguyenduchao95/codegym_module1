@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            padding: 10px 12px;
+            font-size: 16px;
+            outline-color: orange;
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: orange;
+            border-color: orange;
+        }
+
+        .result{
+            font-size: 20px;
+            margin-top: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Caculator</h1>
+    <input id="num1" type="text" placeholder="Nhập số thứ 1">
+    <input id="num2" type="text" placeholder="Nhập số thứ 2">
+    <div class="btn">
+        <button value="addition">Addition (+)</button>
+        <button value="subtraction">Subtraction (-)</button>
+        <button value="multiplication">Multiplication (x)</button>
+        <button value="division">Division (/)</button>
+    </div>
+
+    <div class="result"></div>
+</div>
+<script src="./exam5.js"></script>
+</body>
+</html>
