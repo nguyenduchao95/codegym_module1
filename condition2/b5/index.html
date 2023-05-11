@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .container {
+            width: 450px;
+        }
+
+        input {
+            padding: 15px;
+            width: 93%;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline-color: orange;
+            color: crimson;
+        }
+
+        .cal {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            width: 80px;
+            height: 50px;
+            font-size: 20px;
+            margin: 10px 15px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: orange;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Máy tính đơn giản</h1>
+    <input type="text">
+    <div class="cal">
+        <button class="btn" value="1">1</button>
+        <button class="btn" value="2">2</button>
+        <button class="btn" value="3">3</button>
+        <button class="btn" value="+">+</button>
+        <button class="btn" value="4">4</button>
+        <button class="btn" value="5">5</button>
+        <button class="btn" value="6">6</button>
+        <button class="btn" value="-">-</button>
+        <button class="btn" value="7">7</button>
+        <button class="btn" value="8">8</button>
+        <button class="btn" value="9">9</button>
+        <button class="btn" value="*">x</button>
+        <button class="btn" value="C">C</button>
+        <button class="btn" value="0">0</button>
+        <button class="btn" value="=">=</button>
+        <button class="btn" value="/">/</button>
+
+    </div>
+</div>
+
+<script>
+    let btns = document.querySelectorAll('.btn');
+    let input = document.querySelector('input');
+
+    btns.forEach(function (btn) {
+            btn.onclick = function (e) {
+                if (this.value == '=') {
+                    input.value = eval(input.value);
+                } else if (this.value == 'C') {
+                    input.value = '';
+                } else {
+                    input.value = input.value + this.value;
+                }
+            }
+    })
+
+</script>
+</body>
+</html>
