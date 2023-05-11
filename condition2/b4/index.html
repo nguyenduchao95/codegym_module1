@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu lệnh switch-case</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+    }
+    input, button{
+      padding: 10px;
+      outline-color: orange;
+      font-size: 16px;
+      margin-right: 10px;
+      border-radius: 4px;
+      border: 1px solid;
+    }
+
+    button:hover{
+      background: blue;
+      color: white;
+      border: none;
+    }
+
+    .result{
+        font-size: 20px;
+        margin-top: 20px;
+        color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Kiểm tra số ngày trong tháng</h1>
+    <input type="number" placeholder="Nhập tháng">
+    <button>Check</button>
+    <div class="result"></div>
+  </div>
+
+<script>
+  let input = document.querySelector('input');
+  let btn = document.querySelector('button');
+  let rs = document.querySelector('.result');
+
+  function check(){
+    switch (input.value){
+        case '2':
+            rs.innerHTML = 'Tháng 2 có 28 hoặc 29 ngày';
+            break;
+        case '4':
+        case '6':
+        case '9':
+        case '11':
+            rs.innerHTML = 'Tháng ' + input.value + ' có 30 ngày';
+            break;
+        case '1':
+        case '3':
+        case '5':
+        case '7':
+        case '8':
+        case '10':
+        case '12':
+            rs.innerHTML = 'Tháng ' + input.value + ' có 31 ngày';
+            break;
+        default:
+            rs.innerHTML = 'Tháng nhập vào không đúng. Vui lòng nhập lại!';
+            break;
+    }
+    input.value = '';
+  }
+
+  btn.addEventListener('click', check);
+  input.addEventListener('keydown', function (e){
+      if(e.key == 'Enter') check();
+  })
+</script>
+</body>
+</html>
