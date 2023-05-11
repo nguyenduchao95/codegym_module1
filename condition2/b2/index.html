@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện bàn phím</title>
+</head>
+<body>
+<img id="image" src="./chibi.jpg" style="position: absolute; left: 0; top: 0;" width="236">
+</body>
+
+<script>
+    let img = document.getElementById("image");
+    let maxWidth = window.innerWidth - img.offsetWidth;
+    let maxHeight = window.innerHeight - img.offsetHeight;
+    function moveUp() {
+        img.style.top = parseInt(img.style.top) > 0 ?
+                        (parseInt(img.style.top) - 5 + 'px') :
+                        '0';
+    }
+
+    function moveRight() {
+        img.style.left = parseInt(img.style.left) < maxWidth ?
+                         parseInt(img.style.left) + 5 + 'px' :
+                         maxWidth + 'px';
+    }
+
+    function moveDown() {
+        img.style.top = parseInt(img.style.top) < maxHeight ?
+                        (parseInt(img.style.top) + 5 + 'px') :
+                        maxHeight + 'px';
+    }
+
+    function moveLeft() {
+        img.style.left = parseInt(img.style.left) > 0 ?
+                         parseInt(img.style.left) - 5 + 'px' :
+                         '0';
+    }
+
+    window.onkeydown = function (event) {
+        switch (event.key) {
+            case 'ArrowUp':
+                moveUp();
+                break;
+            case 'ArrowRight':
+                moveRight();
+                break;
+            case 'ArrowDown':
+                moveDown();
+                break;
+            case 'ArrowLeft':
+                moveLeft();
+                break;
+        }
+    }
+
+</script>
+</html>
