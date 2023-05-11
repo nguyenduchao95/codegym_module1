@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉ số cân nặng</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+    }
+
+    h1{
+      text-align: center;
+      color: red;
+      text-transform: uppercase;
+    }
+    .form-group{
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .form-group input{
+      padding: 5px 10px;
+      font-size: 20px;
+      outline-color: blue;
+    }
+
+    .btn{
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    button{
+      padding: 14px 12px;
+      font-size: 16px;
+      background: blue;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover{
+      background: rgba(0,0,255,0.8);
+    }
+
+    .result{
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Tính chỉ số cân nặng</h1>
+  <div class="form-group">
+    <label for="weight">Nhập cân nặng (kg):</label>
+    <input id="weight" type="text">
+  </div>
+
+  <div class="form-group">
+    <label for="height">Nhập chiều cao (m):</label>
+    <input id="height" type="text">
+  </div>
+
+  <div class="btn">
+    <button>Kiểm tra</button>
+  </div>
+
+  <div class="result">
+    <span></span>
+    <img id="myImg" width="100" src="">
+  </div>
+</div>
+
+
+
+<script>
+  let weight = document.querySelector('#weight');
+  let height = document.querySelector('#height');
+  let btn = document.querySelector('.btn');
+  let result = document.querySelector('.result span');
+  let img = document.querySelector('#myImg');
+
+  function handleCheck (){
+    let bmi = parseFloat(weight.value) / (parseFloat(height.value) * parseFloat(height.value));
+    bmi = Math.round(bmi*100) / 100;
+    let mess = 'Chỉ số BMI của bạn là: ' + bmi;
+
+    if(isNaN(bmi)){
+      result.innerHTML = '<b>Bạn nhập sai cân nặng, chiều cao. Hãy nhập lại!</b>';
+    } else if (bmi < 18.5) {
+    result.innerHTML = mess + '. <b>Bạn đang gầy. Ăn thật nhiều vào nhé!</b>';
+    img.src = 'sad.gif';
+  } else if (bmi < 25.0){
+    result.innerHTML = mess + '. <b>Bạn đang bình thường. Hãy giữ vững chỉ số nhé!</b>';
+    img.src = 'bt.gif';
+  } else if (bmi < 30.0){
+    result.innerHTML = mess + '. <b>Bạn đang thừa cân. Hãy giảm cân nhé!</b>';
+    img.src = './beo.gif';
+  } else{
+    result.innerHTML = mess + '. <b>Bạn đang béo phì. Hãy giảm cân nhé!</b>';
+    img.src = './beo.gif';
+  }
+  }
+
+  btn.addEventListener('click', handleCheck);
+  height.addEventListener('keydown', function (e){
+    if(e.key == 'Enter') handleCheck();
+  });
+</script>
+</body>
+</html>
