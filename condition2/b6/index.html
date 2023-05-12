@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game puzzle</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 600px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 120px;
+            margin-bottom: 12px;
+            border-right: 3px solid white;
+            border-bottom: 3px solid white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+</div>
+
+<script>
+    let puzzle = {
+        "id1": ['funny-cat1_part1x1.jpg', 'monkey_part1x1.jpg', 'panda_swap_part1x1.jpg'],
+        "id2": ['funny-cat1_part2x1.jpg', 'monkey_part2x1.jpg', 'panda_swap_part2x1.jpg'],
+        "id3": ['funny-cat1_part3x1.jpg', 'monkey_part3x1.jpg', 'panda_swap_part3x1.jpg'],
+        "id4": ['funny-cat1_part4x1.jpg', 'monkey_part4x1.jpg', 'panda_swap_part4x1.jpg'],
+        "id5": ['funny-cat1_part5x1.jpg', 'monkey_part5x1.jpg', 'panda_swap_part5x1.jpg'],
+    }
+
+    let imgs = document.querySelectorAll('img');
+
+    function check() {
+        let images = document.querySelectorAll('img');
+        let classImg0 = images[0].className
+        let isSameClass = true
+        for(let i = 1; i < images.length; i++){
+            if(images[i].className !== classImg0) {
+                isSameClass = false;
+                break;
+            }
+        }
+
+        images.forEach(function (img) {
+            img.style.boxShadow = isSameClass ? '2px 6px 8px red' : '2px 4px 4px black';
+        })
+    }
+
+    window.onload = function () {
+        imgs.forEach(function (img, index) {
+            let i = index + 1;
+            let random = Math.floor(Math.random() * 3);
+            img.src = './img/' + puzzle["id" + i][random];
+            img.className = 'img' + random;
+        })
+        check();
+    }
+
+    imgs.forEach(function (img, index) {
+        let puzzleId = puzzle["id" + (index + 1)];
+        img.onclick = function () {
+            let current = puzzleId.findIndex(function (el) {
+                return img.src.includes(el);
+            });
+            let i = current == 2 ? 0 : current + 1;
+            this.src = './img/' + puzzleId[i];
+            this.className = 'img' + i;
+            check();
+        }
+    })
+</script>
+</body>
+</html>
