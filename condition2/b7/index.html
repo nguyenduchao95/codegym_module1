@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng vui DoYouLoveMe</title>
+    <style>
+        .container{
+            margin: 200px 0 0 200px;
+        }
+        button{
+            padding: 10px;
+            width: 60px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            margin: 0 25px;
+        }
+        button:hover{
+            opacity: 0.8;
+        }
+        #btn-yes{
+            background: crimson;
+        }
+        #btn-no{
+            background: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love me?</h1>
+        <div>
+            <button id="btn-yes">YES</button>
+            <button id="btn-no">NO</button>
+        </div>
+    </div>
+
+    <script>
+        let btnYes = document.getElementById('btn-yes');
+        let btnNo = document.getElementById('btn-no');
+        let widthBtn = btnNo.offsetWidth;
+        let heightBtn = btnNo.offsetHeight;
+
+        btnYes.onclick = function (){
+            alert('Yes. You are right!');
+        }
+
+        btnNo.onmouseover = function (){
+            let maxWidth = window.innerWidth - widthBtn;
+            let maxHeight = window.innerHeight - heightBtn;
+            let width = Math.floor(Math.random() * (maxWidth + 1));
+            let height = Math.floor(Math.random() * (maxHeight + 1));
+            btnNo.style = `position: absolute; top: ${height}px; left: ${width}px`;
+        }
+    </script>
+</body>
+</html>
