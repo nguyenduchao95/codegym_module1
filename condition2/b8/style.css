@@ -1,0 +1,173 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.group {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: 0;
+}
+
+.control {
+    background: gray;
+    width: 60px;
+    height: 25px;
+    position: relative;
+    border-radius: 12px;
+}
+
+.btn {
+    width: 28px;
+    height: 28px;
+    background: rgb(190, 190, 190);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn1.on {
+    animation: turnOnGreen linear 0.5s forwards;
+}
+
+.btn1.off {
+    animation: turnOffGreen linear 0.5s forwards;
+}
+
+.btn2.on {
+    animation: turnOnPurple linear 0.5s forwards;
+}
+
+.btn2.off {
+    animation: turnOffPurple linear 0.5s forwards;
+}
+
+.btn3.on {
+    animation: turnOnRed linear 0.5s forwards;
+}
+
+.btn3.off {
+    animation: turnOffRed linear 0.5s forwards;
+}
+@keyframes turnOnGreen {
+    0% {
+        left: 0;
+        background: rgb(190, 190, 190);
+    }
+
+    50% {
+        left: 50%;
+        background: rgba(108, 212, 3, 0.7);
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        left: 100%;
+        background: rgb(108, 212, 3);
+        transform: translate(-100%,-50%);
+    }
+}
+
+@keyframes turnOffGreen {
+    0% {
+        left: 100%;
+        transform: translate(-100%,-50%);
+        background: rgb(108, 212, 3);
+    }
+
+    50% {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(108, 212, 3, 0.7);
+    }
+
+    100% {
+        left: 0;
+        background: rgb(190, 190, 190);
+    }
+}
+
+@keyframes turnOnPurple {
+    0% {
+        left: 0;
+        background: rgb(190, 190, 190);
+    }
+
+    50% {
+        left: 50%;
+        background: rgba(191, 2, 191, 0.7);
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        left: 100%;
+        background: rgb(191, 2, 191);
+        transform: translate(-100%,-50%);
+    }
+}
+
+@keyframes turnOffPurple {
+    0% {
+        left: 100%;
+        transform: translate(-100%,-50%);
+        background: rgb(191, 2, 191);
+    }
+
+    50% {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(191, 2, 191, 0.7);
+    }
+
+    100% {
+        left: 0;
+        background: rgb(190, 190, 190);
+    }
+}
+
+@keyframes turnOnRed {
+    0% {
+        left: 0;
+        background: rgb(190, 190, 190);
+    }
+
+    50% {
+        left: 50%;
+        background: rgba(219, 42, 42, 0.7);
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        left: 100%;
+        background: rgb(219, 42, 42);
+        transform: translate(-100%,-50%);
+    }
+}
+
+@keyframes turnOffRed {
+    0% {
+        left: 100%;
+        transform: translate(-100%,-50%);
+        background: rgb(219, 42, 42);
+    }
+
+    50% {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(219, 42, 42, 0.7);
+    }
+
+    100% {
+        left: 0;
+        background: rgb(190, 190, 190);
+    }
+}
