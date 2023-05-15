@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhập số lượng số nguyên tố cần in ra'));
+    let rs = [];
+    let i = 2;
+    while (i > 1) {
+        let isCheck = true;
+        for (let j = 2; j < i - 1; j++) {
+            if (i % j == 0) {
+                isCheck = false;
+                break;
+            }
+        }
+        if (isCheck) rs.push(i);
+        if (rs.length == n) break;
+        i++;
+    }
+    for(let value of rs){
+        document.write(value + '<br>');
+    }
+</script>
+</body>
+</html>
