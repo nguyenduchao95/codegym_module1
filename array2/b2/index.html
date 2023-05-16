@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<div style="text-align: center">
+    <label for="input">Nhập từ: </label>
+    <input id="input" type="text" placeholder="Nhập từ để tìm kiếm">
+    <button id="btn">Dịch</button>
+    <p id="rs"></p>
+</div>
+</body>
+</html>
+
+<script>
+    let arr1 = ['apple', 'banana'];
+    let arr2 = ['quả táo', 'quả chuối'];
+    let ip = document.getElementById('input');
+    let btn = document.getElementById('btn');
+    let rs = document.getElementById('rs');
+
+    btn.onclick = function (){
+        for(let i = 0; i < arr1.length; i++){
+            if(ip.value == arr1[i]){
+                rs.innerHTML = arr2[i];
+                break;
+            }
+        }
+    }
+</script>
