@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng các hàm có sẵn của mảng</title>
+</head>
+<body>
+
+<script>
+    //Bài 1: Viết một chương trình Javascript để nối tất cả các phần tử trong một mảng chuỗi lại với nhau.
+
+    let myColor = ["Red", "Green", "White", "Black"];
+    let rs1 = myColor.join();
+    console.log(rs1)
+
+    //Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2 số chẵn.
+    let num = prompt('Nhập chuỗi số');
+    let rs2 = [];
+    for(let i = 0; i < num.length; i++){
+        if((num[i]) % 2 == 0 && (num[i+1]) % 2 == 0){
+            rs2.push(num[i], '-');
+        } else {
+            rs2.push(num[i]);
+        }
+    }
+    console.log(rs2.join(''))
+
+    let str = prompt('Nhập chuỗi kí tự');
+    let arr = str.split(' ');
+    let rs = [];
+    for(let i of arr){
+        if(i){
+            let a = '';
+            for(let j = 0; j < i.length; j++){
+                if(i[j] == i[j].toUpperCase()){
+                    a += i[j].toLowerCase();
+                } else {
+                    a += i[j].toUpperCase();
+                }
+            }
+            rs.push(a);
+        }
+    }
+    console.log(str)
+    console.log(rs.join(' '));
+</script>
+</body>
+</html>
