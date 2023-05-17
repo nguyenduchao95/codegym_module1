@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic tac toe</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    let game = document.getElementById('game');
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+        arr[i] = new Array('(.)', '(.)', '(.)', '(.)', '(.)', '(.)');
+    }
+
+    function init() {
+        let str = '<h2>Caro game simple</h2><br><br>';
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                str += `&nbsp;&nbsp;&nbsp;${arr[i][j]}`;
+            }
+            str += '<br>';
+        }
+        str += '<br><button onclick="change()">Change Value</button>';
+        game.innerHTML = str;
+    }
+
+    function check(){
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if((arr[i][j] == 'x' && arr[i][j+1] == 'x' && arr[i][j+2] == 'x') ||
+                    (arr[i][j] == 'x' && arr[i][j+1] == 'x' && arr[i][j-1] == 'x') ||
+                    (arr[i][j] == 'x' && arr[i][j-1] == 'x' && arr[i][j-2] == 'x')){
+                    alert('X thắng');
+                    break;
+                }
+                if((arr[i][j] == 'o' && arr[i][j+1] == 'o' && arr[i][j+2] == 'o') ||
+                    (arr[i][j] == 'o' && arr[i][j+1] == 'o' && arr[i][j-1] == 'o') ||
+                    (arr[i][j] == 'o' && arr[i][j-1] == 'o' && arr[i][j-2] == 'o')){
+                    alert('O thắng');
+                    break;
+                }
+                if((arr[i][j] == 'x' && arr[i+1][j] == 'x' && arr[i+2][j] == 'x') ||
+                    (arr[i][j] == 'x' && arr[i+1][j] == 'x' && arr[i-1][j] == 'x') ||
+                    (arr[i][j] == 'x' && arr[i-1][j] == 'x' && arr[i-2][j] == 'x')){
+                    alert('X thắng');
+                    break;
+                }
+                if((arr[i][j] == 'o' && arr[i+1][j] == 'o' && arr[i+2][j] == 'o') ||
+                    (arr[i][j] == 'o' && arr[i+1][j] == 'o' && arr[i-1][j] == 'o') ||
+                    (arr[i][j] == 'o' && arr[i-1][j] == 'o' && arr[i-2][j] == 'o')){
+                    alert('O thắng');
+                    break;
+                }
+            }
+        }
+    }
+    init();
+    let isX = true;
+    function change(){
+        let x = parseInt(prompt('Enter the position of x'));
+        let y = parseInt(prompt('Enter the position of y'));
+        if(x >= 0 && x <arr.length && y >= 0 && y < arr[0].length){
+            if(isX){
+                arr[x][y] = 'x';
+                isX = !isX;
+            } else {
+                arr[x][y] = 'o';
+                isX = !isX;
+            }
+            init();
+            check();
+        }
+    }
+
+</script>
+</body>
+</html>
