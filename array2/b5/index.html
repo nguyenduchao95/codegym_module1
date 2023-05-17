@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let arr = [];
+    for(let i = 0; i < 10; i++){
+        arr.push(Math.floor(Math.random()*100));
+    }
+    //Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử.
+    // Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+    let rs1 = [];
+    for(let i of arr){
+        if(i >= 10) rs1.push(i);
+    }
+    console.log(`Có ${rs1.length} số nguyên lớn hơn hoặc bằng 10: ${rs1.toString()}`);
+
+    //Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+    //    Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.
+    let max = arr[0];
+    let indexs = [];
+    for(let i of arr){
+        if(max < i) max = i;
+    }
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] == max) indexs.push(i);
+    }
+    console.log(`Giá trị lớn nhất là ${max}; vị trí của phần tử đó là ${indexs.toString()}`);
+
+    //Bài 3- Viết chương trình khởi tạo mảng số nguyên.
+    // Hiển hiện giá trị lớn nhất trong mảng đó.
+    // In ra giá trị trung bình của các phần tử trong mảng.
+    let sum = 0;
+    for(let i of arr){
+        sum += i;
+    }
+    console.log(`Giá trị lớn nhất là ${max}; giá trị trung bình của các phần tử trong mảng là ${sum/arr.length}`);
+
+    //Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.
+    console.log(arr.reverse());
+</script>
+</body>
+</html>
