@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Textarea</title>
+</head>
+<body>
+  <div style="text-align: center">
+    <h2>Type anthing slowly</h2>
+    <textarea id="rs" cols="50" rows="8"></textarea>
+  </div>
+</body>
+</html>
+
+<script>
+  let str = 'KHÔNG SAO CHÉP MÃ NGUỒN!!';
+  let ip = document.getElementById('rs');
+  let i = 0;
+  let arr = [];
+
+  ip.oninput = function (){
+      if(i < str.length){
+          arr.push(str[i]);
+          i++;
+      } else {
+          i = 0;
+          arr = [];
+      }
+      ip.value = arr.join('');
+  }
+</script>
