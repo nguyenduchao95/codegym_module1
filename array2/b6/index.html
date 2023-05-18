@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+  //Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra các phần tử trong mảng.
+  let arr1 = [
+    [1, 2, 1, 24],
+    [8, 11, 9, 4],
+    [7, 0, 7, 27],
+    [7, 4, 28, 14],
+    [3, 10, 26, 7]
+  ];
+  for(let i = 0; i < arr1.length; i++){
+    console.log('row ' + i);
+    for(let j = 0; j < arr1[i].length; j++) {
+      console.log(arr1[i][j]);
+    }
+  }
+
+  //Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+  let arr2 = ['c', 's', 'c', '2', '6', '1'];
+  console.log(arr2.reverse().join(''));
+
+  //Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+  // Chương trình này đếm số ký tự số trong mảng.
+  let arr3 = ['a', 'b', '2', 'g', '8'];
+  let count = 0;
+  for(let i of arr3){
+      if(!isNaN(+i)) count++;
+  }
+  console.log('số ký tự số trong mảng là ' + count);
+
+  //Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
+  let str = 'chương trình để đếm số từ trong một chuỗi';
+  let arr4 = str.split(' ');
+  console.log('Số từ trong một chuỗi là: ' + arr4.length);
+</script>
