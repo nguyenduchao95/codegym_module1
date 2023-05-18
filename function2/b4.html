@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    //Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào.
+    function square(number) {
+        return number * number;
+    }
+
+    //Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn.
+    function area(r) {
+        return Math.PI * r * r;
+    }
+
+    function perimeter(r) {
+        return Math.PI * 2 * r;
+    }
+
+    //Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào.
+    function factorial(number) {
+        let rs = 1;
+        for (let i = number; i > 1; i--) {
+            rs *= i;
+        }
+        return rs;
+    }
+
+    //Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không.
+    // Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+    function checkNum(str) {
+        return !isNaN(parseInt(str));
+    }
+
+    //Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.
+    function min(a,b,c){
+        return Math.min(a,b,c);
+    }
+
+    //Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không.
+    // Nếu là nguyên dương trả về true, ngược lại trả về false.
+    function isPositive(number){
+        return number >= 0;
+    }
+
+    //Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.
+    function reverse(arr){
+        return arr.reverse();
+    }
+
+    //Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+    // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+    function count(arr, str){
+        let count = 0;
+        for(let i of arr){
+            if(i == str) count++;
+        }
+        return count ? count : -1;
+    }
+
+</script>
