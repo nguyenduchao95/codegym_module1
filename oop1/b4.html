@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="600"></canvas>
+</body>
+</html>
+
+<script>
+  function Rectangle(a, b){
+    this.a = a;
+    this.b = b;
+
+    this.getPerimeter = function (){
+      return 2 * (a + b);
+    }
+    this.getArea = function(){
+      return a * b;
+    }
+  }
+
+  let rec = new Rectangle(250, 130);
+  function drawRec(){
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    let x = Math.floor(Math.random()*canvas.width);
+    let y = Math.floor(Math.random()*canvas.height);
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(x,y,rec.a,rec.b);
+  }
+  alert(`Chu vi hình chữ nhật là: ${rec.getPerimeter()}; Diện tích hình chữ nhật là: ${rec.getArea()}`);
+  drawRec();
+</script>
