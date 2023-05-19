@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1350" height="630" style="border: 1px solid red"></canvas>
+</body>
+</html>
+
+<script>
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+
+    function Circle(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    function GetRandomPara() {
+        this.x = Math.floor(Math.random() * canvas.width);
+        this.y = Math.floor(Math.random() * canvas.height);
+        this.radius = Math.floor(Math.random() * (80 - 30 +1)) + 30;
+    }
+
+    function getRandomHex() {
+        return Math.floor(Math.random() * 256);
+    }
+
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        let opacity = Math.round(Math.random() * 10) / 10;
+        opacity = opacity == 0 ? opacity : 1;
+        return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
+    }
+
+    function drawCircle(circle){
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = getRandomColor();
+        ctx.fill();
+    }
+
+    function createCircle() {
+        let par1 = new GetRandomPara();
+        let par2 = new GetRandomPara();
+        let par3 = new GetRandomPara();
+        let circle1 = new Circle(par1.x, par1.y, par1.radius);
+        let circle2 = new Circle(par2.x, par2.y, par2.radius);
+        let circle3 = new Circle(par3.x, par3.y, par3.radius);
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawCircle(circle1);
+        drawCircle(circle2);
+        drawCircle(circle3);
+
+        setTimeout(createCircle, 500);
+    }
+
+    createCircle();
+</script>
