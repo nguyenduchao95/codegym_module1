@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+  function Temperature(celsius){
+    this.celsius = celsius;
+
+    this.getCtoF = function (){
+      return 9/5 * this.celsius + 32;
+    }
+    this.getCtoK = function (){
+      return this.celsius + 273.15;
+    }
+  }
+
+  let cel = new Temperature(25);
+  document.write(`Nhiệt độ F: ${cel.getCtoF()} <br>`);
+  document.write(`Nhiệt độ K: ${cel.getCtoK()} <br>`);
+</script>
