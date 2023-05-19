@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    function Mobile(battery, memoryArea1, memoryArea2, memoryArea3) {
+        this.battery = battery;
+        this.memoryArea1 = memoryArea1 ? memoryArea1 : '';
+        this.memoryArea2 = memoryArea2 ? [memoryArea2] : [];
+        this.memoryArea3 = memoryArea3 ? [memoryArea3] : [];
+
+        this.checkStatusOnOff = function () {
+            return this.battery > 0;
+        }
+
+        this.turnOn = function () {
+            alert("Điện thoại đang bật");
+        }
+
+        this.turnOff = function () {
+            alert("Điện thoại đang tắt");
+        }
+
+        this.charge = function () {
+            alert("Đang sạc pin. Pin hiện tại là: " + this.battery);
+            this.battery = 100;
+        }
+
+        this.writeMessenger = function () {
+            this.memoryArea1 = prompt("Viết tin nhắn");
+            this.battery--;
+        }
+
+        this.receiveMess = function (mobile) {
+            this.memoryArea2.push(mobile.memoryArea3.at(-1));
+            this.battery--;
+        }
+
+        this.sendMess = function (mobile) {
+            let mess = prompt(`Viết tin nhắn gửi`, this.memoryArea1)
+            console.log(mess)
+            mobile.memoryArea2.push(mess);
+            this.memoryArea3.push(mess)
+        }
+    }
+
+    let ip = new Mobile(50,'','Tin nhắn nhận', 'Tin nhắn gửi');
+    let ss = new Mobile(89,'','','');
+
+    ip.writeMessenger();
+    ip.sendMess(ss);
+    ip.receiveMess(ss);
+    console.log(ss.memoryArea2)
+    console.log(ip.memoryArea3)
+</script>
