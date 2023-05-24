@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+  class Mouse {
+    nameMouse;
+    status;
+    soundMouse;
+    weightMouse;
+    speedMouse;
+    constructor(name, weight, speed) {
+      this.nameMouse = name;
+      this.weightMouse = weight;
+      this.speedMouse = speed;
+    }
+    getStatus() {
+      if (this.status) {
+        alert("Chuột sống");
+      } else {
+        alert("Chuột chết");
+      }
+    }
+
+    Die() {
+      return this.status = false;
+    }
+
+    noDie() {
+      return this.status = true;
+    }
+
+    actionMouse(sound) {
+      this.soundMouse = sound;
+      alert(this.soundMouse);
+    }
+
+  }
+
+  class Cat {
+    nameCat;
+    weightCat;
+    speedCat;
+    mouse;
+    soundCat;
+    constructor(name, weight, speed, mouse) {
+      this.nameCat = name;
+      this.weightCat = weight;
+      this.speedCat = speed;
+      this.mouse = mouse;
+    }
+    getWeightCat() {
+      return this.weightCat;
+    }
+    setSoundCat(soundCat) {
+      this.soundCat = soundCat;
+    }
+    getSoundCat() {
+      alert(this.soundCat);
+    }
+    actionCat(sound) {
+      this.soundCat = sound;
+      alert(this.soundCat);
+    }
+    catchTheMouse() {
+      if (this.mouse.speedMouse < this.speedCat) {
+        alert("Mèo đã bắt được chuột");
+        this.mouse.status = false;
+      } else {
+        alert("Mèo không bắt được chuột");
+        this.mouse.status = true;
+      }
+    }
+    eatTheMouse() {
+      if (!this.mouse.status) {
+        this.weightCat = this.weightCat +  this.mouse.weightMouse;
+        alert("Chuột đã bị mèo ăn");
+      }
+    }
+  }
+
+  let jerry = new Mouse("jerry", 10, 100);
+  let tom = new Cat("tom", 20, 200, jerry);
+
+  jerry.noDie();
+
+  tom.catchTheMouse();
+  tom.eatTheMouse();
+  console.log(tom.getWeightCat());
+  
+</script>
