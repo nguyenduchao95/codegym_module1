@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <button style="margin-bottom: 30px">Start</button>
+  <table id="game" style="border-collapse: collapse; cursor: pointer"></table>
+</div>
+</body>
+</html>
+
+<script>
+  let VALUES = {
+    "EMPTY": 0,
+    "X": 1,
+    "O": 2
+  }
+  let DEFAULT_ROWS = 20;
+  let DEFAULT_COLS = 20;
+  let DEFAULT_SIZE = 40;
+  function Cell(x,y){
+    this.x = x;
+    this.y = y;
+    this.value = VALUES.EMPTY;
+
+    this.getHtml = function (){
+        return `
+              <td id="cell-${this.x}-${this.y}"
+              style="border: 1px solid blue;
+              width: ${DEFAULT_SIZE}px;
+              height: ${DEFAULT_SIZE}px; text-align: center; font-size: 30px; color: red"
+              onclick="play(${this.x}, ${this.y})">
+              </td>
+        `
+    }
+
+    this.draw = function (){
+        let cellXY = document.getElementById(`cell-${this.x}-${this.y}`);
+        switch (this.value){
+          case VALUES.X:
+                cellXY.innerHTML = 'X';
+                break;
+          case VALUES.O:
+            cellXY.innerHTML = 'O';
+            break;
+        }
+    }
+  }
+
+  function GameBroad(rows, cols, elementId){
+    this.rows = rows;
+    this.cols = cols;
+    this.elementId = elementId;
+    this.turn = VALUES.O;
+    this.cells = [];
+    this.isOver = false;
+
+    this.draw = function (){
+        let gameBroad = document.getElementById(elementId);
+        let htmls = '';
+        for(let i = 0; i < this.rows; i++){
+          htmls += '<tr>';
+          this.cells[i] = [];
+          for(let j = 0; j< this.cols; j++){
+            let cell = new Cell(i, j);
+            this.cells[i].push(cell);
+            htmls += cell.getHtml();
+          }
+          htmls += '</tr>';
+        }
+        gameBroad.innerHTML = htmls;
+    }
+
+    this.play = function (x,y){
+        if(!this.isOver){
+            let cell = this.cells[x][y];
+            if(cell.value === VALUES.EMPTY){
+                cell.value = this.turn;
+                cell.draw();
+                this.check(x,y);
+                this.turn = this.turn === VALUES.O ? VALUES.X : VALUES.O;
+            } else {
+                alert('Cell is not empty');
+            }
+        }
+    }
+
+    this.check = function (x,y){
+        let cell = this.cells[x][y];
+        let count = 1;
+        let i = 1;
+        while(y+i < this.cols && this.cells[x][y+i].value === cell.value){
+            count++;
+            i++;
+        }
+        while(y-i >=0 && this.cells[x][y-i].value === cell.value){
+            count++;
+            i++;
+        }
+
+        while(x+i < this.rows && this.cells[x+i][y].value === cell.value){
+            count++;
+            i++;
+        }
+        while(x-i >= 0 && this.cells[x-i][y].value === cell.value){
+            count++;
+            i++;
+        }
+
+        while(x+i < this.rows && y+i < this.cols && this.cells[x+i][y+i].value === cell.value){
+            count++;
+            i++;
+        }
+        while(x-i >= 0 && y-i >= 0 && this.cells[x-i][y-i].value === cell.value){
+            count++;
+            i++;
+        }
+
+        this.endGame(count);
+    }
+
+    this.endGame = function (count){
+        if(count >= 5){
+            this.isOver = true;
+            alert('You win !!!');
+        }
+    }
+  }
+
+  function play(x, y){
+      game.play(x,y);
+  }
+
+  let game;
+  function init(){
+      game = new GameBroad(DEFAULT_ROWS, DEFAULT_COLS, 'game');
+      game.draw();
+  }
+
+  window.onload = init;
+
+  document.querySelector('button').onclick = init;
+</script>
