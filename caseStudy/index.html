@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    <title>To Do App</title>
+</head>
+
+<body>
+    <div class="toDoApp">
+        <div class="container">
+            <h1 class="header">Todo App</h1>
+            <div class="body">
+                <div class="top">
+                    <!-- <input type="text" placeholder="Add your new todo"> -->
+                    <div class="top-input">
+                        <input class="input" type="text" placeholder="Add your new todo" />
+                        <span></span>
+                    </div>
+                    <button class="btn btnAdd">Add</button>
+                </div>
+
+                <div class="bottom">
+                    <span class="info active">All</span>
+                    <span class="info">Pending</span>
+                    <span class="info">Completed</span>
+                    <span class="sort sortaz"><i class="fa-solid fa-arrow-down-a-z"></i></span>
+                    <span class="sort sortza"><i class="fa-solid fa-arrow-down-z-a"></i></span>
+                    <button class="btn btnRemoveAll">Remove All</button>
+                </div>
+            </div>
+            <div>
+                <ul class="list all show"></ul>
+                <ul class="list pending"></ul>
+                <ul class="list completed"></ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="./main.js"></script>
