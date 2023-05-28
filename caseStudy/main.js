@@ -48,6 +48,7 @@ function showToDo(status) {
         })
         list.innerHTML = htmls.join('');
         console.log(window.innerHeight * 0.5)
+        list.style.maxHeight = window.innerHeight * 0.5 + 'px';
         list.scrollHeight > window.innerHeight * 0.5 ? list.classList.add('overflow') : list.classList.remove('overflow');
     }
 }
