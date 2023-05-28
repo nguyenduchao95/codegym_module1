@@ -18,7 +18,7 @@ body {
     margin-top: 50px;
     background-color: #fff;
     padding: 30px 0;
-    border-radius: 12px 0px;
+    border-radius: 12px 0;
 }
 
 .body {
@@ -49,7 +49,6 @@ body {
 .input {
     width: 100%;
     height: 100%;
-    border: 0;
     border: 1px solid transparent;
     border-bottom-color: #aaa;
     padding: 0.35em 0.45em;
@@ -80,8 +79,9 @@ body {
 .bottom {
     margin-top: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .info {
@@ -95,6 +95,15 @@ body {
 
 .info.active {
     color: #3687dd;
+}
+
+.notice{
+    padding: 1px 4px;
+    background-color: red;
+    border-radius: 50%;
+    font-size: 11px;
+    color: white;
+    margin-left: 2px;
 }
 
 .sort {
@@ -167,7 +176,7 @@ button:after {
 button:hover:before,
 button:hover:after {
     width: 100%;
-    transition: 0.8s ease all;
+    transition: 0.5s ease all;
 }
 
 /* */
@@ -176,30 +185,80 @@ button:hover:after {
     background-color: #9048eb;
 }
 
-.btnDelete {
-    background-color: #e74d3b;
-}
-
-.btnEdit{
-    background-color: #0ee969;
-}
 
 .btnRemoveAll {
     background-color: #5196e1;
+    margin-top: 5px;
+}
+
+.btnSetting{
+    background-color: #3687dd;
+    /*position: relative;*/
+}
+
+.setting{
+    position: absolute;
+    box-shadow: 2px 3px 4px 0 #555555;
+    z-index: 99;
+    background: white;
+    font-size: 14px;
+    border-radius: 4px;
+    display: none;
+    left: 58%;
+    transform-origin: top right;
+    transform: scale(0);
+    animation: show ease-in 0.25s forwards;
+}
+
+.list-item:last-child .setting, .list-item:nth-last-child(2) .setting{
+    transform-origin: bottom right;
+    bottom: 86%;
+}
+
+.list-item:nth-child(1) .setting, .list-item:nth-child(2) .setting{
+    transform-origin: top right;
+    left: 58%;
+    bottom: -320%;
+}
+
+@keyframes show {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.setting.show{
+    display: block;
+    transform: scale(1);
+}
+
+.option{
+    display: flex;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.option:hover{
+    background-color: #dfdfdf;
+}
+
+.option i {
+    margin-right: 5px;
 }
 
 .list {
     padding: 20px 40px;
-    max-height: 300px;
+    /*max-height: 300px;*/
+}
+
+.list.overflow{
     overflow-y: auto;
-    display: none;
 }
 
-.list.show {
-    display: block;
-}
-
-li {
+.list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -209,17 +268,19 @@ li {
     padding: 8px 10px;
     margin-bottom: 5px;
     border-radius: 4px;
+    position: relative;
 }
 
-li:nth-child(even) {
+.list-item:nth-child(even) {
     background: #f2f2f2;
 }
 
 .list-title {
-    cursor: pointer;
+    text-align: justify;
+    overflow: hidden;
 }
 
-.list-title.completed {
+.list-title.done {
     text-decoration: line-through;
     color: gray;
 }
@@ -244,3 +305,24 @@ li:nth-child(even) {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .list {
+        max-height: 700px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .list {
+        max-height: 500px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .list {
+        max-height: 300px;
+    }
+}
+
