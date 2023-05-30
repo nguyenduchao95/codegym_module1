@@ -29,15 +29,15 @@ function showToDo(status) {
                                         <i class="fa-regular fa-trash-can"></i> 
                                         <span>Delete</span>
                                     </div>
-                                    <div class="option" onclick='setStatus(${JSON.stringify(item)}, ${index}, "pending")'>
+                                    <div class="option" onclick='setStatus(${JSON.stringify(item)}, "pending")'>
                                         <i class="fa-solid fa-plus"></i>
                                         <span>Add to pending</span>
                                     </div>
-                                    <div class="option" onclick='setStatus(${JSON.stringify(item)}, ${index}, "doing")'>
+                                    <div class="option" onclick='setStatus(${JSON.stringify(item)}, "doing")'>
                                         <i class="fa-solid fa-plus"></i>
                                         <span>Add to doing</span>
                                     </div>
-                                    <div class="option" onclick='setStatus(${JSON.stringify(item)}, ${index}, "done")'>
+                                    <div class="option" onclick='setStatus(${JSON.stringify(item)}, "done")'>
                                         <i class="fa-solid fa-plus"></i>
                                         <span>Add to done</span>
                                     </div>
@@ -46,7 +46,7 @@ function showToDo(status) {
                        </li>
                     `
         })
-        list.innerHTML = htmls.join('');
+        list.innerHTML = htmls.join('') || "You don't have any task here";
         list.style.maxHeight = window.innerHeight * 0.5 + 'px';
         list.scrollHeight > window.innerHeight * 0.5 ? list.classList.add('overflow') : list.classList.remove('overflow');
     }
@@ -82,11 +82,12 @@ function showSetting(element, index){
     document.addEventListener('click', removeShow);
 }
 
-function setStatus(item, index, status){
+function setStatus(item, status){
     item.status = status;
+    let index = toDoLists.findIndex(todo => todo.name === item.name);
     toDoLists[index] = item;
     localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
-    render()
+    render();
 }
 function addToDo() {
     if (btnAdd.innerText === 'Save') {
@@ -94,8 +95,10 @@ function addToDo() {
         let index = toDoLists.findIndex(todo => todo.name === str);
         if(index === -1) {
             toDoLists[save].name = str;
-            alert('Success')
-        } else alert('Error')
+            toast.success('Update task successfully!');
+        } else {
+            toast.error('Task already exists!');
+        }
         btnAdd.innerText = 'Add';
     } else {
         if (input.value.trim()) {
@@ -104,8 +107,10 @@ function addToDo() {
             if(index === -1) {
                 let newToDo = {'name': str, 'status': 'pending'};
                 toDoLists.push(newToDo);
-                alert('Success')
-            } else alert('Error')
+                toast.success('Add new task successfully!');
+            } else {
+                toast.error('Task already exists!');
+            }
         }
     }
     localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
@@ -126,6 +131,7 @@ function deleteTodo(index) {
         toDoLists.splice(index, 1);
         localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
         render();
+        toast.success('Delete task successfully!');
     }
 }
 
@@ -138,15 +144,16 @@ function editToDo(item, index) {
 
 function removeAll(){
     let status = document.querySelector('.info.active').id;
-    let isConfirm = confirm(`Xác nhận xóa tất cả trong mục ${status[0].toUpperCase() + status.slice(1)}`);
-    if(isConfirm) {
-        if (status === 'all') {
-            toDoLists = [];
-        } else {
-            toDoLists = toDoLists.filter(todo => todo.status !== status);
+    let statusList = status === 'all' ? toDoLists : toDoLists.filter(todo => todo.status === status);
+    if(statusList.length) {
+        let str = status[0].toUpperCase() + status.slice(1);
+        let isConfirm = confirm(`Xác nhận xóa tất cả trong mục ${str}`);
+        if (isConfirm) {
+            toDoLists = status === 'all' ? [] : toDoLists.filter(todo => todo.status !== status);
+            localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
+            render();
+            toast.success(`Clear ${str} successfully!`);
         }
-        localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
-        render();
     }
 }
 
