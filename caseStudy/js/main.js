@@ -126,13 +126,14 @@ function addToDo() {
     render();
 }
 function deleteTodo(index) {
-    let isConfirm = confirm('Xác nhận xóa');
-    if(isConfirm){
-        toDoLists.splice(index, 1);
-        localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
-        render();
-        toast.success('Delete task successfully!');
-    }
+    // let isConfirm = confirm('Xác nhận xóa');
+    // if(isConfirm){
+    //     toDoLists.splice(index, 1);
+    //     localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
+    //     render();
+    //     toast.success('Delete task successfully!');
+    // }
+    confirmDelete('Xác nhận xóa?', index, 'abc', 'Delete task successfully!');
 }
 
 function editToDo(item, index) {
@@ -147,13 +148,16 @@ function removeAll(){
     let statusList = status === 'all' ? toDoLists : toDoLists.filter(todo => todo.status === status);
     if(statusList.length) {
         let str = status[0].toUpperCase() + status.slice(1);
-        let isConfirm = confirm(`Xác nhận xóa tất cả trong mục ${str}`);
-        if (isConfirm) {
-            toDoLists = status === 'all' ? [] : toDoLists.filter(todo => todo.status !== status);
-            localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
-            render();
-            toast.success(`Clear ${str} successfully!`);
-        }
+        let messConfirm = `Xác nhận xóa tất cả trong mục ${str}?`;
+        let messToast = `Clear ${str} successfully!`
+        // let isConfirm = confirm(`Xác nhận xóa tất cả trong mục ${str}`);
+        // if (isConfirm) {
+        //     toDoLists = status === 'all' ? [] : toDoLists.filter(todo => todo.status !== status);
+        //     localStorage.setItem("toDoLists", JSON.stringify(toDoLists));
+        //     render();
+        //     toast.success(`Clear ${str} successfully!`);
+        // }
+        confirmDelete(messConfirm, -1, status, messToast);
     }
 }
 

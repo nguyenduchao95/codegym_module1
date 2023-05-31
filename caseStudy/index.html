@@ -9,6 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/toast.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <title>To Do App</title>
 </head>
 
@@ -23,7 +24,7 @@
                         <input class="input" type="text" placeholder="Add your new task" />
                         <span></span>
                     </div>
-                    <button class="btn btnAdd">Add</button>
+                    <button class="btnAdd">Add</button>
                 </div>
 
                 <div class="bottom">
@@ -33,7 +34,7 @@
                     <span id="done" class="info">Done<sup class="notice done"></sup></span>
                     <span class="sort sortaz"><i class="fa-solid fa-arrow-down-a-z"></i></span>
                     <span class="sort sortza"><i class="fa-solid fa-arrow-down-z-a"></i></span>
-                    <button class="btn btnRemoveAll">Clear All</button>
+                    <button class="btnRemoveAll">Clear All</button>
                 </div>
             </div>
             <div>
@@ -43,8 +44,11 @@
     </div>
 
     <div class="toast"></div>
+
+    <div class="modal"></div>
 </body>
 
 </html>
 <script src="./js/toast.js"></script>
+<script src="./js/modalConfirm.js"></script>
 <script src="./js/main.js"></script>

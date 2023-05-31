@@ -88,10 +88,6 @@ body {
     cursor: pointer;
 }
 
-.info:hover {
-    color: #3687dd;
-}
-
 .info.active {
     color: #3687dd;
 }
@@ -114,16 +110,12 @@ body {
     cursor: pointer;
 }
 
-.sort:hover {
-    color: red;
-}
-
 .sort.active {
     color: red;
 }
 
 /* 
-.btn {
+button {
     padding: 10px 12px;
     font-size: 16px;
     background-color: #50af50;
@@ -133,7 +125,7 @@ body {
     margin-left: 12px;
 }
 
-.btn:hover {
+button:hover {
     opacity: 0.8;
     cursor: pointer;
 } 
@@ -150,11 +142,6 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-}
-
-button:hover {
-    background: transparent;
-    color: #5196e1;
 }
 
 button:before,
@@ -175,13 +162,6 @@ button:after {
     left: 0;
     bottom: 0;
 }
-
-button:hover:before,
-button:hover:after {
-    width: 100%;
-    transition: 0.5s ease all;
-}
-/* */
 
 .btnAdd {
     background-color: #9048eb;
@@ -252,7 +232,6 @@ button:hover:after {
 
 .list {
     padding: 20px 40px;
-    /*max-height: 300px;*/
 }
 
 .list.overflow{
@@ -327,3 +306,23 @@ button:hover:after {
     }
 }
 
+@media (hover: hover) {
+    .info:hover {
+        color: #3687dd;
+    }
+
+    .sort:hover {
+        color: red;
+    }
+
+    button:hover {
+        background: transparent;
+        color: #5196e1;
+    }
+
+    button:hover:before,
+    button:hover:after {
+        width: 100%;
+        transition: 0.5s ease all;
+    }
+}
